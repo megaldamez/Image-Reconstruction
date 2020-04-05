@@ -1,6 +1,6 @@
 % clear all;
 
-load('MQP1.mat','DataArray2')
+load('MQP5.mat','DataArray3')
 
 soundSpeed = 1540; % [m/s]
 no_ele = 1; %total number of elements
@@ -9,7 +9,7 @@ fs = 10e6; %sample frequency
 sampleSpacing = (1/fs)*soundSpeed*1e2; %sample number vs mm
 times = 1;
 
-rf_us = DataArray2;
+rf_us = DataArray3;
 % field_init(0);
 % % final_rf = zeros(401,401);
 % 
@@ -31,9 +31,9 @@ figure(1)
 % plot(A)
 % subplot(2,1,2)
 % plot(B)
-plot(rf_us)
-% imagesc(db(abs(A)))
-figure(2)
+% plot(rf_us)
+% % imagesc(db(abs(A)))
+% figure(2)
 % subplot(2,1,1)
 % imagesc(db(abs(A)))
 % subplot(2,1,2)
@@ -62,7 +62,7 @@ imagesc(db(abs(rf_us)))
 %%
 post_recon = zeros(401,401);
 for i = 1:401
-    for j = 201
+    for j = 1:201
         xpos = (i - 201);
         ypos = 0;
         zpos = (j - 201) + 0.03/0.05;
@@ -77,7 +77,7 @@ for i = 1:401
 end
 
 
-figure(3)
+figure(2)
 imagesc(db(abs(post_recon)))
 % imagesc(db(abs(hilbert(rf_us))));
 % imagesc(db(abs(hilbert(final_rf))));
@@ -118,7 +118,7 @@ y = [st ed]*sampleSpacing/2;
 env = env/max(max(env(st:ed,:)));
 
 %%
-figure(4)
+figure(3)
 imagesc(x,y,db(env(st:ed,:)),[-20 0]);
 % imagesc(abs(env(3000:end-500,:)));
 colormap(gray)

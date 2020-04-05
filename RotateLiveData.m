@@ -90,7 +90,7 @@ x = [1 size(out,2)]*channelSpacing;
 y = [st ed]*sampleSpacing/2;
 env = env/max(max(env(st:ed,:)));
 
-figure
+figure(3)
 imagesc(x,y,db(env(st:ed,:)),[-10 0]);
 % imagesc(abs(env(3000:end-500,:)));
 colormap(gray)
