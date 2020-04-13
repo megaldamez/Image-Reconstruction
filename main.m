@@ -5,13 +5,13 @@ no_ele = 1; %total number of elements
 channelSpacing = 0.2; %60/128
 fs = 60e6;
 sampleSpacing = (1/fs)*soundSpeed*1000/2; %sample number vs mm
+Angle = 1:361;
+phantom_positions = [2.75 0 0]/100; %% 55/2 mm %%%%%%%%%%%%%%%%%%
 times = 1;
 
 field_init(0);
 % final_rf = zeros(401,401);
-
-Angle = 1:361;
-phantom_positions = [2.75 0 0]/100; %% 55/2 mm %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 
 new_phantom_positions = rotatePhantom(phantom_positions, Angle);

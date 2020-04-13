@@ -9,7 +9,7 @@ p = reshape(p, [3 1]);
 % choose a point which will be the center of rotation
 x_center = 0;
 y_center = 0;
-z_center = 0/100; % [cm]
+z_center = 0; % [cm]
 % create a matrix which will be used later in calculations
 center = repmat([x_center; y_center; z_center], 1, length(x));
 % define a 60 degree clockwise rotation matrix
@@ -21,8 +21,8 @@ theta = deg2rad(Angle);
 R = zeros(3.*length(theta),2);
 m = 0:3:(length(R)-1);
 n = 1:length(theta);
-R(1+m,:) = [sin(theta(n,:)) cos(theta(n,:))];
-R(3+m,:) = [cos(theta(n,:)) sin(theta(n,:))];
+R(1+m,:) = [cos(theta(n,:)) -sin(theta(n,:))];
+R(3+m,:) = [sin(theta(n,:)) cos(theta(n,:))];
 % R = reshape(R, [2 3]);
 % do the rotation...
 s = p - center;     % shift points in the plane so that the center of rotation is at the origin
