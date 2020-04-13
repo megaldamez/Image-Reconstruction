@@ -6,7 +6,7 @@ rf_us = DataArray3;
 soundSpeed = 1540; % [m/s]
 no_ele = 1; %total number of elements
 channelSpacing = 0.2; %60/128
-fs = 60e6; %sample frequency
+fs = 10e6; %sample frequency
 sampleSpacing = (1/fs)*soundSpeed*1000/2; %sample number vs mm
 times = 1;
 
@@ -31,7 +31,7 @@ imagesc(db(abs(rf_us)))
 
 post_recon = zeros(401,401);
 for i = 1:401
-    for j = 201
+    for j = 1:201
         for angle = 1:361
             
             ypos = (i - 201);

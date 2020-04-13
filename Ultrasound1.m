@@ -2,10 +2,16 @@
 
 load('MQP5.mat','DataArray3')
 
+baseLine = mean(mean(DataArray3(1000:4000,:)));
+rfData = DataArray3 - baseLine;
+rfData(1:300,:) = 0;
+
+rfData_2 = imresize(rfData, [5000*6/8 361]); %% converting 80MHz to 60MHz
+
 soundSpeed = 1540; % [m/s]
 no_ele = 1; %total number of elements
 channelSpacing = 0.2; %60/128
-fs = 10e6; %sample frequency
+fs = 80e6; %sample frequency
 sampleSpacing = (1/fs)*soundSpeed*1e2; %sample number vs mm
 times = 1;
 

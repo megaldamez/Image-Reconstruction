@@ -3,7 +3,7 @@ clear all;
 soundSpeed = 1540; % [m/s]
 no_ele = 1; %total number of elements
 channelSpacing = 0.2; %60/128
-fs = 60e6; %sample frequency
+fs = 60e6;
 sampleSpacing = (1/fs)*soundSpeed*1000/2; %sample number vs mm
 times = 1;
 
@@ -11,7 +11,7 @@ field_init(0);
 % final_rf = zeros(401,401);
 
 Angle = 1:361;
-phantom_positions = [3 0 0]/100;
+phantom_positions = [3 0 0]/100; %% 55/2 mm %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 
 new_phantom_positions = rotatePhantom2(phantom_positions, Angle);
@@ -28,12 +28,12 @@ imagesc(db(abs(rf_us)))
 
 post_recon = zeros(401,401);
 for i = 1:401
-    for j = 1:201
+    for j = 1:401
         for angle = 1:361
             
             ypos = (i - 201);
             zpos = 0;
-            xpos = (j - 201) + 0.02/0.05;
+            xpos = (j - 201) + 0.02/0.05; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             xdis = xpos * 0.05;
             ydis = ypos * 0.05;
             zdis = zpos * 0.05;
