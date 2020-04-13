@@ -11,10 +11,10 @@ field_init(0);
 % final_rf = zeros(401,401);
 
 Angle = 1:361;
-phantom_positions = [3 0 0]/100; %% 55/2 mm %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+phantom_positions = [2.75 0 0]/100; %% 55/2 mm %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 
-new_phantom_positions = rotatePhantom2(phantom_positions, Angle);
+new_phantom_positions = rotatePhantom(phantom_positions, Angle);
 %         generateRF2;
 rf_us = zeros(5000,size(new_phantom_positions,1));
 for ii = 1:size(new_phantom_positions,1)

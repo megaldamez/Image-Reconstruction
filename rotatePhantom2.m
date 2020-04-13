@@ -9,7 +9,7 @@ p = reshape(p, [3 1]);
 % choose a point which will be the center of rotation
 z_center = 0;
 y_center = 0;
-x_center = 2/100; % [cm] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+x_center = 0/100; % [cm] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % create a matrix which will be used later in calculations
 center = repmat([x_center; y_center; z_center], 1, length(x));
 % define a 60 degree clockwise rotation matrix
