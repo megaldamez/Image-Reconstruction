@@ -6,6 +6,7 @@ channelSpacing = 0.2; %60/128
 fs = 60e6;
 sampleSpacing = (1/fs)*soundSpeed*1000/2; %sample number vs mm
 Angle = 1:361;
+% Angle = [0 90 180 270];
 phantom_positions = [2.75 0 0]/100; %% 55/2 mm %%%%%%%%%%%%%%%%%%
 times = 1;
 
@@ -24,8 +25,8 @@ for ii = 1:size(new_phantom_positions,1)
 end
 figure(1)
 imagesc(db(abs(rf_us)))
-% plot(rf_us)
 
+%%
 post_recon = zeros(401,401);
 for i = 1:401
     for j = 1:401
@@ -74,7 +75,7 @@ imagesc(db(abs(post_recon)))
 % xlabel('x')
 % ylabel('y')
 % zlabel('z')
-%
+%%
 out = DAS_ultrasound(rf_us, no_ele, fs, channelSpacing, soundSpeed,times);
 
 % imagesc(out);
@@ -86,7 +87,7 @@ x = [1 size(out,2)]*channelSpacing;
 % y = [st size(postBF_F,1)]*sampleSpacing;
 y = [st ed]*sampleSpacing/2;
 env = env/max(max(env(st:ed,:)));
-
+%%
 figure
 imagesc(x,y,db(env(st:ed,:)),[-40 0]);
 % imagesc(abs(env(3000:end-500,:)));
