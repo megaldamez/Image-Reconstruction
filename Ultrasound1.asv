@@ -1,6 +1,6 @@
 % clear all;
 
-load('MQP5.mat','DataArray3')
+load('MQPmat','DataArray3')
 
 baseLine = mean(mean(DataArray3(1000:4000,:)));
 rfData = DataArray3 - baseLine;
@@ -24,7 +24,7 @@ imagesc(db(abs(rfData_2)))
 post_recon = zeros(401,401);
 for i = 1:401
     for j = 1:401
-        for angle = 0:360
+        for angle = 0:90:270
             zpos = (i - 201);
             ypos = 0;
             xpos = (j - 201) + 0.0275/0.05; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,7 +34,7 @@ for i = 1:401
             positions2 = [xdis ydis zdis]/1000;  %  The position of the phantom [m]
             new_positions2 = rotatePhantom(positions2, angle);
             dis = sqrt(new_positions2(:,1).^2 + new_positions2(:,3).^2);
-            pixeldis = round(dis'*1000/sampleSpacing);
+            pixeldis = round(dis'*100/sampleSpacing);
             
             post_recon(j,i) = post_recon(j,i) + (rfData_2(pixeldis));
             
