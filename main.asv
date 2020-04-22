@@ -27,7 +27,6 @@ end
 figure(1)
 imagesc(db(abs(rf_us)))
 
-
 %%
 post_recon = zeros(401,401);
 for i = 1:401
@@ -73,5 +72,4 @@ ylabel('Axial Distance [mm]')
 xlabel('Lateral Distance [mm]')
 colormap(gray)
 axis image
-axis([15 36 3 9])
 colorbar
