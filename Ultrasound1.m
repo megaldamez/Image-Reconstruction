@@ -41,7 +41,7 @@ for i = 1:401
         end
     end
 end
-
+%%
 figure(2)
 imagesc(db(abs(post_recon)))
 
@@ -54,9 +54,9 @@ env = abs(hilbert(out));
 st = 1;
 ed = 2321;
 % x = [1 size(out,2)]*0.5/times-size(out)*0.5/times/2;
-x = [1 size(out,2)]*channelSpacing*0.05;
+x = [1 size(out,2)]*0.5*0.05;
 % y = [st size(postBF_F,1)]*sampleSpacing;
-y = [st ed]*sampleSpacing/2;
+y = [st ed]*sampleSpacing/2*3;
 env = env/max(max(env));
 
 %%

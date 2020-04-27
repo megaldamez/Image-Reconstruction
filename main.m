@@ -5,7 +5,7 @@ no_ele = 1; %total number of elements
 channelSpacing = 0.2; %60/128
 fs = 60e6;
 sampleSpacing = (1/fs)*soundSpeed*1000/2; %sample number vs mm
-Angle = 0:45:315;%:360;
+Angle = 0:90:270;%:360;
 % Angle = [0 90 180 270];
 phantom_positions = [2.75 0 0]/100; %% 55/2 mm %%%%%%%%%%%%%%%%%%
 times = 1;
@@ -32,7 +32,7 @@ imagesc(db(abs(rf_us)))
 post_recon = zeros(401,401);
 for i = 1:401
     for j = 1:401
-        for angle = 0:45:315%:360
+        for angle = 0:45:270%:360
             zpos = (i - 201);
             ypos = 0;
             xpos = (j - 201) + 0.0275/0.05; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,7 +66,7 @@ y = [st ed]*sampleSpacing/2;
 env = env/max(max(env(st:ed,:)));
 %%
 figure(3)
-imagesc(x,y,db(env),[-40 0]);
+imagesc(x,y,db(env),[-20 0]);
 % imagesc(abs(env(3000:end-500,:)));
 ylabel('Axial Distance [mm]')
 xlabel('Lateral Distance [mm]')
